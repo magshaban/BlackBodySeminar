@@ -1,9 +1,22 @@
 \documentclass[aspectratio=169]{beamer}
 %\usepackage{hyperref}
+%\usepackage[latin1]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
 
-%\usepackage[latin1]{inputenc}
+% must add equation numbers in Part 1.
+% rewrite sections.
+% A better chronological description for blackbody.
+% bit of part 2 and 3 are unfinished.
+% some statements needs to be rechecked. 
+% multi column did work with the correction. but it is still not showing part 3.
+% graph is showing some errors in 239 which i could'nt understad due to lack of sleep.
+
 \usepackage{multicol}
 
 \newcommand{\highlight}[1]{\textbf{#1}}
@@ -21,16 +34,16 @@
 	\titlepage
 \end{frame}
 
-%\begin{frame}[noframenumbering]{Overview}
-%	\begin{multicols}{2}
-%		\tableofcontents[sections={1}] 
-%		\columnbreak 								this did not work
-%		\tableofcontents[sections={2-3}]
-%	\end{multicols}
-%\end{frame}
-
 \begin{frame}[noframenumbering]{Overview}
-\tableofcontents
+
+		\tableofcontents[sections={1}] 
+		
+\end{frame}
+
+\begin{frame}
+
+		\tableofcontents[sections={2-3}]
+		 
 \end{frame}
 
 \metroset{numbering = counter}
@@ -41,15 +54,15 @@
 
 \begin{frame}{Introduction}
 
-{\large Ideally, any object which \highlight{absorbs and emits} all the radiation which falls on it, is considered to be a \highlight{Blackbody}.}
+{\large An idealised object that can \highlight{absorb} and subsequently \highlight{emit}, all the radiation incident on it is called a \highlight{Blackbody}.}
 
 \end{frame}
 
 \subsection{Charged oscillators}
  
-\subsection{Rayleigh intensity function}
+\subsection{Rayleigh's intensity function}
 
-\begin{frame}{Rayleigh'law}
+\begin{frame}{Rayleigh's law}
 
 	\begin{itemize}
 		
@@ -61,34 +74,35 @@
 	
 \end{frame}
 
-
-\begin{frame}
+\begin{frame}{Rayleigh's law}
 	
 	\begin{itemize}
 	
 		\item Mean kinetic energy acquired by the oscillator is, $\frac{1}{2}\,kT$. \newline
 		\item And the total kinetic energy will be $ kT $. 
 		
-		\end{itemize}
+	\end{itemize}
 		
 \end{frame}
 
+\begin{frame}{Rayleigh's law}
 
-\begin{frame}
 	\begin{itemize}
 
-		\item We have a charge which has some kinetic energy, \pause \newline
-		\item Means it \highlight{radiates} some of it's energy. \newline 
-		\item Since the charge is radiating energy to infinity, \highlight{the system cannot attain equilibrium}.
+		%\item We have a charge which has some kinetic energy, \pause \newline
+		%\item Means it \highlight{radiates} some of it's energy. \newline 
+		\item Since the charge is radiating energy \highlight{the system cannot attain equilibrium}.
 			
 	\end{itemize}
+	
 \end{frame}
 
 	
-\begin{frame}
+\begin{frame}{Rayleigh's law}
+
 	\begin{itemize}
 			
-		\item Since the charge is radiating energy to infinity,the system cannot attain equilibrium. \newline
+		%\item Since the charge is radiating energy to infinity,the system cannot attain equilibrium. \newline
 		\item How do we tackle this situation? \pause \newline
 		\item We confine the system.
 		
@@ -97,20 +111,19 @@
 \end{frame}
 	
 		
-\begin{frame}
+\begin{frame}{Rayleigh's law}
 
 	\begin{itemize}
 			
-		\item A charged oscillator surrounded by few gaseous atoms$^\dag$ placed inside a box. \newline
+		%\item The oscillator is kept   \newline
 		\item Inner walls of the box is totally reflective.\newline
-		\item Now, after some time we can claim that the system will attain \highlight{thermal equilibrium}
-		%thought of adding the aprox. in foot note 
+		\item After some time the system will attains \highlight{thermal equilibrium}
 	\end{itemize}
 	
 \end{frame}
 		
 		
-\begin{frame}
+\begin{frame}{Rayleigh's law}
 		
 		So, the energy radiated  by the oscillator  per second can be given by, \newline
 		{\large \[ \frac{1}{Q} = \frac{\left(\frac{dW}{dt}\right)}{\omega_0 W}\]}\newline
@@ -119,68 +132,137 @@
 \end{frame}
 	
 		
-\begin{frame}
+\begin{frame}{Rayleigh's law}
 		Also, we have 
-		\[ \frac{1}{Q}= \frac{1}{\gamma} \] \newline
-		{\small Where $\gamma$ is the dampping constant.} 
-		\newline
-		
-		Remember the mean energy of the oscillator is $kT$
+		\[ \frac{1}{Q}= \frac{\gamma}{\omega_0} \]
+			
+			\begin{center}		
+				{\small Where $\gamma$ is the dampping constant.}
+			\end{center}
+			
+		Remember the mean energy of the oscillator is $kT$? for three degrees of freedom, it is $3kT$.
 		
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Rayleigh's law}
 
 	 \begin{center}
 	 
-	 	{\large Average energy loss due to radiation is given by,
-	 	\[ \boxed{\left<\frac{dW}{dt}\right> = \gamma kT}\]	}
-	 		
-	 \end{center} 
+	 	{\large Average energy loss due to radiation is given by,} \newline
+	 	
+	  \end{center} 
+	  
+	 {\large \[ \boxed{\left<\frac{dW}{dt}\right> = \gamma kT}\]}	 		
 
 \end{frame}
 		
-\begin{frame}
+\begin{frame}{Rayleigh's law}
 	
 	\begin{itemize}
 		
-		\item Let, $ I(\omega)d\omega $ be the incident light energy with in a frequeny range $d\omega$. \newline
-		\item Assuming all the radiation which falls on a \textit{cross section} $\sigma_s$ is absorbed completely, \newline
-		\item Scattered light must be the product of $ I(\omega)d\omega $ and $ \sigma_s $. 
+		\item Let, $ \mathbf{I}(\omega)d\omega $ be the incident light energy with in a frequeny range $d\omega$. \newline
+		\item Assuming all the radiation which falls on a \textit{cross section} '$\sigma_s$' is absorbed completely, \newline
+		\item Scattered light must be the product of $ \mathbf{I}(\omega)d\omega $ and $ \sigma_s $.
 
 	\end{itemize}
 	
 \end{frame}
 			
-\begin{frame}
+\begin{frame}{Rayleigh's law}
+	\begin{center}
+		Expression for the cross section is given by,
+	\end{center}
 	
-	{\large \[ \sigma_s = \frac{8\pi {r_0}^{2}}{3} \left( \frac{\omega^{4}}{(\omega^2-{\omega_0}^{2})^2+\gamma^2 \omega^2}\right) \]}\newline
-		\begin{center}
-			When $ \omega\,=\,\omega_0 $ \newline 
-		\end{center}		
+	{\large \[ \sigma_s = \frac{8\pi {r_0}^{2}}{3} \left[ \frac{\omega^{4}}{(\omega^2-{\omega_0}^{2})^2+\gamma^2 \omega^2}\right] \]}\newline
+	When $ \omega\,=\,\omega_0 $, \newline 		
 	{\large \[ \sigma_s = \frac{2\pi {r_0}^{2}{3} \omega_0^{2}}{3(\omega-\omega_0)^2+\dfrac{\gamma^2}{4}} \]}
 	
 \end{frame}
+				
+\begin{frame}{Rayleigh's law}
+
+	\[ \frac{dW_s}{dt}=\int_0^{\infty}{\mathbf{I}(\omega)\,\sigma_s \, d\omega} = \int_0^{\infty}{\frac{2\pi {r_0}^{2} \omega_0^{2} \, \mathbf{I}(\omega)\, d\omega}{3 \left[ (\omega-\omega_0)^2+\dfrac{\gamma^2}{4} \right] }} \] \newline
+
+	since we're considering the equilibrium condition ($\omega =\omega_0 $), equation reduces to,
+	\[ \frac{dW_s}{dt}= \frac{2}{3}\pi {r_0}^{2} \omega_0^{2} \, \mathbf{I}(\omega_0) \int_{-\infty}^{\infty}{\frac{d\omega}{(\omega-\omega_0)^2+{\left(  \dfrac{\gamma}{2} \right)}^{2}}}  \]
+
+\end{frame}
+
+\begin{frame}{Rayleigh's law}\vspace{1cm}
+
+	Since the integral reduces to arctan function we get, $\frac{2\pi}{\gamma}$. and as 
+		\[\frac{dW_s}{dt}= \frac{dW}{dt}\],
+		% we get the intensity 
+		\[\mathbf{I}(\omega)=\frac{9\gamma^2\,kT}{4\pi^2 r_0^2\omega_0^2} \] 
+	The value of $\gamma$ wa found to be equal to,
+		\[ frac{2}{3} \frac{r_0 \omega_0^2}{c} \]
+	
+\end{frame}
+
+\begin{frame}{Rayleigh's law}
+	% {\large the intansity distribution function \[\mathbf{I}(\omega) is, }
+	 \[\mathbf{I}(\omega)=\frac{\omega^2\,kT}{\pi^2 c^2} \] 
+\end{frame}
+
+\begin{frame}{Graph}
+	\begin{tikzpicture}[samples=100, scale=1.5]
+		\draw[->,thick] {(0,0) -- (0,6)};
+		\draw[->,thin] {(0,0) -- (7,0)};
+    \begin{axis}[
+        %xmin=0,
+        xlabel={$\omega$ [\si{\hertz}]},
+        %ymin=0,
+        %ymax=pi,
+        ylabel={$\rho (\omega; T)$ [\si{\joule\per\cubic\meter}]},
+        %ytick=\empty,
+        no markers,
+        domain=0.1:40,
+		  axis line style={draw=none},
+		  tick style={draw=none},
+        style={thick}]
+
+       \addplot [forget plot,name path=B,samples=2] {0};
+
+    \pgfplotsinvokeforeach{3500, 4500, 5500, 6500}
+    {
+        \addplot+ 
+        {(x^3)/((pi^2)*(exp(2000*x/(#1))-1))};
+        \addlegendentryexpanded{$T = #1 [\si{\kelvin}]$}
+    }
+
+
+    \end{axis}
+    
+    \end{tikzpicture}
+
+\end{frame}
+
 				
 \subsection{The Ultra-Violet catastropy} 
 
 \subsection{Plank's emphirical formula}
 \begin{frame}{}
+
 	\begin{itemize}
 
 		\item Max Planck came up with an idea. \newline
 		\item We had the experimental result, and what we needed was a theoretical explanation for the curve. \newline
-		\item Planck studied the curve and came up with a mathematical formula. \newline
+		\item Planck studied the curve and came up with a mathematical formula.
+		
 	\end{itemize}
+	
 \end{frame}
+
 \begin{frame}{}
+
 	\begin{itemize}
 
 		\item He made an assumption that the energy level of the harmonic oscillator is quantized.  \newline
 		\item The harmonic oscillator can take up energies only in the multiples of $ \mathbf{\hbar \omega} $.  \newline
-		\item The probability of 
+		\item The probability of occupying an energy level \textbf{E} is {\large $\mathbf{P(E)} = \alpha e^{\frac{-\hbar \omega}{kT}}$} . 
 	\end{itemize}
+	
 \end{frame}
 
 \section{Part 2}
@@ -188,32 +270,40 @@
 \subsection{Intensity of a Black Body spectrum and the problem}
 
 \begin{frame}{}
+
 	\begin{itemize}
 
 		\item The intensity of radiation for frequency $\omega$ is given by \[I(\omega)d\omega = \frac{\hbar \omega^3 d\omega}{ \pi^2 c^2 \left(e^{\frac{\hbar \omega}{kT}}-1 \right) } \] \newline
 		\item Planck considered that the matter was quantized and not light. \newline
-		\item Einstein came up with an alternate idea to solve Black body problem. \newline  
+		\item Einstein came up with an alternate idea to solve Black body problem.
+		 
 	\end{itemize}
+	
 \end{frame}
 
 \subsection{Einstein's work on Black Bodies}
 
 \begin{frame}{}
+
 	\begin{itemize}
 
 		\item Einstein considered that even the light was quantized, by taking that light is actually photons with energy $\hbar \omega$   \newline
-		\item a pic is needed. \newline
+		\item a pic is needed.
 
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}{}
+
 	\begin{itemize}
+	
 		\item Einstein assumed that Planck's formula was right. \newline
 		\item Consider two energy levels , say , the $n^{th}$ level and $m^{th}$ level. \newline
 		\item A light of certain frequency is incident on atom and by absorbing a photon, transition from state n to state m occurs. 
  
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
@@ -222,81 +312,229 @@
 
 		\item The probability of the transition is proportional to intensity of the light. \newline
 		\item The proportionality constant is $B_{nm}$ and mathematically can be written as,
+		
 	\end{itemize}
 		
 			\begin{equation}
-					 R_{n \to m} = N_{n} B_{nm} I(\omega) 
+					 R_{n \to m} = N_{n} B_{nm} I(\omega) 	 
 			\end{equation} 
 						
 \end{frame}
 
-\section{Part 3}
+\begin{frame}{}
 
-\begin{frame}{title}
-this should have 3 expt
+	\begin{itemize}
+
+		\item Einstein considers that there are two types of emissions that take place in an atom. \newline
+		\item Spontaneous emission. \newline
+		\item Stimulated emission.
+		
+	\end{itemize}
+	
 \end{frame}
 
+\begin{frame}{}
+
+	\begin{itemize}
+	
+		\item The combined mathematical expression is,
+		
+	\end{itemize}
+	
+			\begin{equation}
+					 R_{m \to n} = N_{m} [A_{mn} + B_{mn} I(\omega)] 
+			\end{equation} 
+	
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item At thermal equilibrium, the number of atoms going to higher energy level ,ust be equal to the number of atoms coming to 					  lower energy state. \newline	
+		\item The ratio of $ N_{m} $ to $ N_{n} $ is given by $ e^{\frac{-\hbar \omega}{kT}} $  \newline
+ 
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item At thermal equilibrium both $ R_{n \to m} $ and $ R_{m \to n} $ are equal.  \newline
+		\item $ N_{n} B_{nm} I(\omega) = N_{m} [A_{mn} + B_{mn} I(\omega)] $ \newline
+		\item On dividing the previous equation by $ N_{m} $ we get, 
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item $ B_{nm} I(\omega) e^{\frac{\hbar \omega}{kT}} = A_{mn} + B_{mn} I(\omega) $ \newline
+		\item So the equation that Einsteim got for intensity of radiation for frequency is 
+		
+	\end{itemize}
+	
+		\begin{equation}
+				 I(\omega) = \frac{A_{mn}}{B_{nm} e^{\frac{\hbar \omega}{kT}} - B_{mn} }
+		\end{equation}
+		
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item Since Einstein considered that the formula given by Planck was correct, we should get , \newline
+		\item  $ B_{nm} = B_{mn} $  and also
+		
+			\begin{flushleft} % It's not looking good.
+			
+				 \[\frac{A_{mn}}{B_{nm}} = \frac{\hbar \omega^3 d\omega}{ \pi^2 c^2} \] 
+
+			\end{flushleft}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}
+
+	{\Large This is how Einstein rederived Planck's formula from a quantum mechanical viewpoint.}
+		
+\end{frame}
+
+\section{Part 3}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item \textbf{P} = probability\newline
+		\item $ \phi $ = Probability amplitude \newline
+		\item \textbf{P} = $ \,\Bigr\rvert\,\phi \,\Bigr\rvert\,^{2} $ 
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item $ \phi $ = $ \phi_{1} + \phi_{2} $ \newline
+		\item \textbf{P} = $ \,\Bigr\rvert\,\phi_{1} + \phi_{2} \,\Bigr\rvert\,^{2} $ 
+	
+	\end{itemize}
+	
+\end{frame}
 
 \begin{frame}{Case A}
+
 	\begin{itemize}
 		\item Detector 1 is set to detect only $ \alpha $ particles and Dectector 2 is set to detect only oxygen atoms.\newline
 		\item Probability amplitude of the scattering is given as $ f(\theta)$ when they are at an angle $\theta$.\newline
 		\item The probability of this event = $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $
-	\end{itemize}		
+	\end{itemize}
+		
 \end{frame}
 
 
 \begin{frame}{Case B}
+
 	\begin{itemize}
+	
 		\item Set up the dectectors such that the detectors would dectect either $\alpha$ particle or oxygen atom.\newline
-		\item We will not both to distinguish which particle is which one.\newline
+		\item We will not distinguish which particle is which entering the detector.\newline
 		\item This means that if oxygen atom in position $\theta$ , then
 		$\alpha$ particle on the opposite side is at an angle $\pi-\theta$.
+		
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
+
 	\begin{itemize}
+	
 		\item Probability amplitude of oxygen atom = $f(\pi-\theta)$ \newline
 		\item Probability amplitude of $\alpha$ particle = $f(\theta)$ \newline
-		\item The probability of $\alpha$  particle 
-		being detected at dectector 1 = $\,\Bigr\rvert\,f(\theta)+f(\pi-\theta)\,\Bigr\rvert\,^{2}$
+		\item The probability of a particle 
+		being detected at detector 1 = $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $ + $ \,\Bigr\rvert\,f(\pi - \theta) \,\Bigr\rvert\,^{2} $
 		
  	\end{itemize}
+ 	
 \end{frame}
 
-\begin{frame}
+\begin{frame}{}
+
 	\begin{itemize}
-		\item If  $\theta = \dfrac{\pi}{2}$,  then applying this to the expression  $\,\Bigr\rvert\,f(\theta)+f(\pi-\theta)\,\Bigr\rvert\,^{2}$. \newline
-		\item Probability = $4 \,\Bigr\rvert\,f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert\,^{2}$ , if the particle interfere. \newline
-		\item Probability = $2 \,\Bigr\rvert\, f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert ^{2}$ , if the particle donot interfere.\newline
-		\item Add the amplitudes for the alternative process in which two particles simply exchange roles and there is an interference. \newline
+
+\item Consider if both are $ \alpha $ particles, \newline
+\item Then we would not know which particle entered the detector, so the total probability changes to,  \newline
+\item  The probability of a $ \alpha $ particle 
+		being detected at detector 1 = $ \,\Bigr\rvert\,f(\theta) + f(\pi - \theta) \,\Bigr\rvert\,^{2} $
+		
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
+
 	\begin{itemize}
+
+		\item If  $\theta = \dfrac{\pi}{2}$,  then applying this to the expression  $\,\Bigr\rvert\,f(\theta)+f(\pi-\theta)\,\Bigr\rvert\,^{2}$ we get, \newline
+		\item Probability = $4 \,\Bigr\rvert\,f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert\,^{2}$ , if the particles are indistinguishible.
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{itemize}
+
+		\item Suppose the particles were distinguishible, then the probability for $\theta = \dfrac{\pi}{2}$ when applied for $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $ + $ \,\Bigr\rvert\,f(\pi - \theta) \,\Bigr\rvert\,^{2} $ is given by, \newline
+		\item Probability = $2 \,\Bigr\rvert\, f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert ^{2}$ \newline 
+		\item This shows that the probability gets doubled for indistinguishible particles.
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+
+	\begin{itemize}
+	
 		\item \textit{Can we apply the same logicto the electron-electron scattering ? }\newline
 		\item \textit{OBSERVATION} : " When we have situation in which the identity of the electron which is arriving at a point is echanged with anothe one , the new amplitude interfere with old one with an opposite phase." \newline
 		\item In electrons case , the interfering amplitude for exchange interfere with a negative sign. \newline
 		Probability for electron = $\,\Bigr\rvert\,f(\theta)-f(\pi-\theta)\,\Bigr\rvert\,^{2}$
+		
 		 \end{itemize}
+		 
 \end{frame}
 
 \begin{frame}
 
 	SPIN PROBABILITY TABLE
+	
 \end{frame}
 
-\begin{frame}
-	\frametitle{Identical Particles}
+\begin{frame}{Identical Particles}
 	
 		{\large \textbf{Identical particles}\,, also called \textbf{indistinguishable particle}\,, are particles that cannot be distinguished from one another.}
 		
 \end{frame}
 
 \begin{frame}{Identical - Indistinguishable Particles}
+
 	\begin{itemize}
+	
 		\item Consider particle 'a' and particle 'b'. \newline
 		\item Let the two particle collide and get sactttered in two different directions say '1' and '2' over a surface element $ds_{1}$ and $ds_{2}$ of the detector respectively. \newline
 		\item If the particles are indistinguishable then the amplitudes of these process will add up. \newline
@@ -304,76 +542,105 @@ this should have 3 expt
 		$\,\Bigr\rvert\,<1|a><2|b> + <2|a><1|b>\,\Bigr\rvert\,^{2} ds_{1} ds_{2}$
 		
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
+
 	\begin{itemize}
+	
 		\item Integrating over the area of the detector ,  if we let $ds_{1}$ and $ds_{2}$ rangr over the whole area $(\vartriangle S)$ , we could count each part of the area twice since the expression $\,\Bigr\rvert\,<1|a><2|b> + <2|a><1|b>\,\Bigr\rvert\,^{2} ds_{1} ds_{2}$ contains everything that can happen with any pair of surface elements $ds_{1}$ and $ds_{2}$. \newline
 		\item $ Probability_{BOSE} = \dfrac{ \left(4\,\Bigr\rvert a \,\Bigr\rvert^{2} \,\Bigr\rvert b \,\Bigr\rvert^{2}\right)}{2} \left(\vartriangle S\right)$ \newline
 		\item This is just twice what we got the probability for distinguished particles. 
 
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}{State with n Bose particle}
+
 	\begin{itemize}
+	
 		\item Consider n particles say a, b, c... scattered in n direction say 1, 2, 3 ... \newline
 		\item Probability that each particle acting alone would go into an element of the surface ds of the detector is $\,\Bigr\rvert < >\,\Bigr\rvert^{2} ds$. 
+		
 	\end{itemize}
+	
 \end{frame} 
 
 \begin{frame}
+
 	\begin{itemize}
+	
 		\item \textbf{Assumption} :All particles are distinguishable. \newline
 		\item Probability that n particles will be counted together in n different surface elements = $\,\Bigr\rvert a_{1}b_{2}c_{3}... \,\Bigr\rvert^{2}ds_{1}ds_{2}...$ \newline
 		\item If the amplitude does not depend on where ds is located in the detector , then the \newline
 		$Probability = \left(\,\Bigr\rvert a \,\Bigr\rvert^{2}\,\Bigr\rvert b \,\Bigr\rvert^{2}...\right)(ds_{1}ds_{2}...)$
+		
 	\end{itemize}
+	
 \end{frame} 
 
 \begin{frame}
+
 	\begin{itemize}
+	
 		\item Integrating each dS over the surface $\vartriangle S$ of the dectector \newline 
 		$(P_{n})_{different} = \left(\,\Bigr\rvert a \,\Bigr\rvert^{2}\,\Bigr\rvert b \,\Bigr\rvert^{2}...\right)(\vartriangle S)^{n}$ \newline
 		\item Now suppose that all the particle are Bose particles.
-		\item For n particles, there are n! different , but indistinguishable  possibilities for which we must add the amplitudes. \newline
+		\item For n particles, there are n! different , but indistinguishable  possibilities for which we must add the amplitudes.
+		
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
+
 	\begin{itemize}
+	
 	\item Probability that n particles will be counted on the n surface elements is given by \newline $Probability = \left(\,\Bigr\rvert a_{1}b_{2}c_{3}... + a_{1}b_{3}c_{2}... \,\Bigr\rvert^{2}\right)(ds_{1}ds_{2}...)$
 	\item $Probability = \left(\,\Bigr\rvert n!abc... \,\Bigr\rvert^{2}\right)(ds_{1}ds_{2}...)$
 	\item Integrate each ds over the area $\vartriangle S$ of the detector \newline
 	$(P_{n})_{BOSE} = n!\left(\,\Bigr\rvert abc... \,\Bigr\rvert^{2}\right)(\vartriangle S)^{n}$
+	
 	\end{itemize}
+
 \end{frame}
 
 \begin{frame}
+
 	\begin{itemize}
+	
 	\item Compareing the probability when the particles are distinguishable and indistinguishable \newline
 	$(P_{n})_{BOSE} = n!\left(\,\Bigr\rvert abc... \,\Bigr\rvert^{2}\right)(\vartriangle S)^{n}$ \newline
 	$(P_{n})_{different} = \left(\,\Bigr\rvert a \,\Bigr\rvert^{2}\,\Bigr\rvert b \,\Bigr\rvert^{2}...\right)(\vartriangle S)^{n}$ 
 	\item $(P_{n})_{BOSE} = n!(P_{n})_{different}$
+	
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
-	\begin{itemize}
-		\item What is the probability that a Bose particle will go into particular state when there are already n particles present ?
-	\end{itemize}
+
+	
+	{\large	What is the probability that a Bose particle will go into particular state when there are already n particles present ?}
+		
 \end{frame}
 
 \begin{frame}{Emission and Absorption of photons}
+
 	\begin{itemize}
+	
 		\item When the light is emitted, a photon is "created".\newline
 		\item Consider that there are some atom emitting n photons. \newline
 		\item \textit{OBSERVATION} : The probability that an atom will wmit a photon into a particular final state is increased by the factor (n+1) if there are already n photons in that state.
+		
 	\end{itemize}
+	
 \end{frame}
 
-\begin{frame}
-\frametitle{The Blackbody Spectrum}
+\begin{frame}{The Blackbody Spectrum}
+
 \end{frame}
 
 \subsection{Amplitude-based descriptiom of identical particles}
