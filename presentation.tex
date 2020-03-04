@@ -1,32 +1,48 @@
 \documentclass[aspectratio=169]{beamer}
-%\usepackage{hyperref}
-%\usepackage[latin1]{inputenc}
+
+%%%%%%%%%%%%
+%%% PACKAGES
+%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{framed}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{multicol}
 \usepackage{tikz}
-\usetikzlibrary{intersections}
 \usepackage{siunitx}
 \usepackage{pgfplots}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{setspace}
+
+%%%%%%%%%%%%%%%%%%
+%%% CUSTOMISATIONS
+%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{intersections}
 \pgfplotsset{compat=1.15}
+\baselineskip=25pt
+\newcommand{\highlight}[1]{\fcolorbox{yellow}{yellow}{#1}}
+\usetheme[progressbar=frametitle, numbering=none]{metropolis}
+\definecolor{red}{RGB}{150, 20, 20}
+\definecolor{grey}{RGB}{150, 150, 150} % 0 (black) to 255 (white)
+\definecolor{faded}{RGB}{215, 215, 215}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{bg=white, fg=red}
+\setbeamercolor{progress bar}{fg=red,bg=faded}
 
 % must add equation numbers in Part 1.
 % rewrite sections.
 % A better chronological description for blackbody.
 % bit of part 2 and 3 are unfinished.
-% some statements needs to be rechecked. 
-% multi column did work with the correction. but it is still not showing part 3.
-% graph is showing some errors in 239 which i could'nt understad due to lack of sleep.
+% some statements needs to be rechecked.
 
-\usepackage{multicol}
-
-\newcommand{\highlight}[1]{\textbf{#1}}
-
-\usetheme[progressbar=frametitle, numbering=none]{metropolis}
-\setbeamercolor{background canvas}{bg=white}
-\title{Spectrum of Blackbody}
-\institute{Guided by V.H. Belvadi \\ Yuvaraja's College, Mysuru}
+\title{Understanding the spectrum of a blackbody}
+\institute{\color{grey} Guided by V.H. Belvadi \\ Dept. of Physics \\ Yuvaraja's College, Mysuru}
 \author{Sudheendra B.R. \\ Suhas P.K. \\ Shahsank K.K.}
-\date{}
+\date{\vspace*{1ex}\color{grey}{\footnotesize March 2020}}
 
 \begin{document}
 
@@ -35,26 +51,32 @@
 \end{frame}
 
 \begin{frame}[noframenumbering]{Overview}
-
-		\tableofcontents[sections={1}] 
+	\begin{multicols}{2}
+		\tableofcontents[sections={1}]
 		
+			\columnbreak
+			
+		\tableofcontents[sections={2}]	
+	\end{multicols}
+	
 \end{frame}
-
-\begin{frame}
-
-		\tableofcontents[sections={2-3}]
-		 
+\begin{frame}[noframenumbering]{Overview}
+	\tableofcontents[sections={3}] 
 \end{frame}
 
 \metroset{numbering = counter}
 
-\section{Part 1}
+\section{\textbf{Part 1}}
 
-\subsection{Introduction to the Black Body problem}
+\subsection{The Black Body problem}
 
 \begin{frame}{Introduction}
 
-{\large An idealised object that can \highlight{absorb} and subsequently \highlight{emit}, all the radiation incident on it is called a \highlight{Blackbody}.}
+{\centering
+\setstretch{1.5}
+{\Large An idealised object that can \textbf{absorb}, and subsequently \textbf{emit}, all the radiation incident on it is called a \highlight{blackbody}.}
+
+}
 
 \end{frame}
 
@@ -66,7 +88,7 @@
 
 	\begin{itemize}
 		
-		\item Consider gaseous medium, in which we have a charged oscilator. \newline
+		\item Consider gaseous medium, in which we have a charged oscilator. \pause \newline
 		\item Due to random motion of the gaseous atoms, it often collides with the oscillator. \pause \newline
 		\item As a result the gaseous atoms imparts some of it's kinetic energy to the oscillator.
 		
@@ -191,12 +213,12 @@
 
 \begin{frame}{Rayleigh's law}\vspace{1cm}
 
-	Since the integral reduces to arctan function we get, $\frac{2\pi}{\gamma}$. and as 
-		\[\frac{dW_s}{dt}= \frac{dW}{dt}\],
-		% we get the intensity 
-		\[\mathbf{I}(\omega)=\frac{9\gamma^2\,kT}{4\pi^2 r_0^2\omega_0^2} \] 
-	The value of $\gamma$ wa found to be equal to,
-		\[ frac{2}{3} \frac{r_0 \omega_0^2}{c} \]
+	Since the integral reduces to arctan function we get, $2\pi / \gamma$. and as 
+		\begin{align*}
+			\frac{dW_s}{dt} &= \frac{dW}{dt} = 3 \gamma kT \\[2ex]
+			\therefore \mathbf{I}(\omega) &= \frac{9\gamma^2\,kT}{4\pi^2 r_0^2\omega_0^2} \\[2ex]
+			\implies \gamma &= \frac{2}{3} \frac{r_0 \omega_0^2}{c}
+		\end{align*}
 	
 \end{frame}
 
@@ -206,9 +228,14 @@
 \end{frame}
 
 \begin{frame}[fragile]{Graph}
-	\begin{tikzpicture}[samples=100, scale=1.5]
+\vspace*{2ex}
+\begin{figure}
+	\begin{tikzpicture}[samples=100, scale=0.85]
 		\draw[->,thick] {(0,0) -- (0,6)};
-		\draw[->,thin] {(0,0) -- (7,0)};
+		\draw[->,thick] {(0,0) -- (7,0)};
+		\draw[dotted,thick] {(1.25,0) -- (1.25,6)};
+		\draw[dotted,thick] {(2.15,0) -- (2.15,6)};
+		\node at (1.75,6.25) {$\textrm{\textsf{\tiny Visible light}}$};
     \begin{axis}[
         xlabel={$\omega$ [\si{\hertz}]},
         ylabel={$\rho (\omega; T)$ [\si{\joule\per\cubic\meter}]},
@@ -230,6 +257,8 @@
     \end{axis}
     
     \end{tikzpicture}
+\caption{Example spectrum of a blackbody.}
+\end{figure}
 
 \end{frame}
 
@@ -255,12 +284,12 @@
 
 		\item He made an assumption that the energy level of the harmonic oscillator is quantized.  \newline
 		\item The harmonic oscillator can take up energies only in the multiples of $ \mathbf{\hbar \omega} $.  \newline
-		\item The probability of occupying an energy level \textbf{E} is {\large $\mathbf{P(E)} = \alpha e^{\frac{-\hbar \omega}{kT}}$} . 
+		\item The probability of occupying an energy level $\mathbf{E}$ is {\large $\mathbf{P(E)} = \alpha e^{-\hbar \omega / kT}$} . 
 	\end{itemize}
 	
 \end{frame}
 
-\section{Part 2}
+\section{\textbf{Part 2}}
 
 \subsection{Intensity of a Black Body spectrum and the problem}
 
@@ -346,7 +375,7 @@
 
 	\begin{itemize}
 
-		\item At thermal equilibrium, the number of atoms going to higher energy level ,ust be equal to the number of atoms coming to 					  lower energy state. \newline	
+		\item At thermal equilibrium, the number of atoms going to higher energy level must be equal to the number of atoms coming to 					  lower energy state. \newline	
 		\item The ratio of $ N_{m} $ to $ N_{n} $ is given by $ e^{\frac{-\hbar \omega}{kT}} $  \newline
  
 	\end{itemize}
@@ -375,7 +404,7 @@
 	\end{itemize}
 	
 		\begin{equation}
-				 I(\omega) = \frac{A_{mn}}{B_{nm} e^{\frac{\hbar \omega}{kT}} - B_{mn} }
+				 I(\omega) = \frac{A_{mn}}{B_{nm} e^{(\hbar \omega/kT)} - B_{mn} }
 		\end{equation}
 		
 \end{frame}
@@ -387,7 +416,7 @@
 		\item Since Einstein considered that the formula given by Planck was correct, we should get , \newline
 		\item  $ B_{nm} = B_{mn} $  and also
 		
-			\begin{flushleft} % It's not looking good.
+			\begin{flushleft}
 			
 				 \[\frac{A_{mn}}{B_{nm}} = \frac{\hbar \omega^3 d\omega}{ \pi^2 c^2} \] 
 
@@ -403,7 +432,7 @@
 		
 \end{frame}
 
-\section{Part 3}
+\section{\textbf{Part 3}}
 
 \begin{frame}{}
 
@@ -552,7 +581,7 @@
 	
 \end{frame}
 
-\begin{frame}{State with n Bose particle}
+\begin{frame}{State with n Bosons}
 
 	\begin{itemize}
 	
@@ -639,11 +668,10 @@
 \end{frame}
 \begin{frame}{The Blackbody Spectrum}
 	\begin{itemize}
-	 \item For each light frequency $\omega$, there are certain N number of atoms which have two energy states separated, given by the equation $E = \omega\hslash$. \newline
-	 \item Let $N_{e}$ and $N_{g}$ be the average numbers of atoms that are in excited state and ground state. \newline
-	 \item In thermal equilibrium at temperature T, from statistical mechanics \newline
-	 %$\dfrac{N_{e}}{N_{g}} = a^{\left(\dfrac{-\vartriangleE}{\omega\hslash}\right)}$  \newline
-	\item NOTE: Each atom in the ground stae can absorb a photon and go into the excited state and each atom in the excited state can emit a photon and go to the ground state.
+	 \item For each light frequency $\omega$, there are certain N number of atoms which have two energy states separated, given by the equation $E = \omega\hslash$.
+	 \item Let $N_{e}$ and $N_{g}$ be the average numbers of atoms that are in excited state and ground state.
+	 \item In thermal equilibrium at temperature T, from statistical mechanics \[ \frac{N_e}{N_g} = e^{\left(-\Delta E / \hslash \omega \right)}\]
+	\item NOTE: Each atom in the ground state can absorb a photon and go into the excited state and each atom in the excited state can emit a photon and go to the ground state.
 	\end{itemize}
 \end{frame} 
 
@@ -664,9 +692,14 @@
 
 \subsection{Amplitude-based descriptiom of identical particles}
 
-\subsection{n Boson systems}
+\subsection{n-Boson systems}
 
 \subsection{Probability based emission and absorption of Black Bodies}
+
+\subsection{Concluding remarks}
+\begin{frame}
+	You need a frame here or TOC omits it.
+\end{frame}
 
 
 \end{document}
