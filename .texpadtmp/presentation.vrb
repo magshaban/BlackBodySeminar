@@ -1,14 +1,19 @@
 \frametitle{Graph}
-\begin{tikzpicture}[samples=100, scale=1.5]
-		\draw[->,thick] {(0,0) -- (0,6)};
-		\draw[->,thin] {(0,0) -- (7,0)};
+\vspace*{2ex}
+\begin{figure}
+^^I\begin{tikzpicture}[samples=100, scale=0.85]
+^^I^^I\draw[->,thick] {(0,0) -- (0,6)};
+^^I^^I\draw[->,thick] {(0,0) -- (7,0)};
+^^I^^I\draw[dotted,thick] {(1.25,0) -- (1.25,6)};
+^^I^^I\draw[dotted,thick] {(2.15,0) -- (2.15,6)};
+^^I^^I\node at (1.75,6.25) {$\textrm{\textsf{\tiny Visible light}}$};
     \begin{axis}[
         xlabel={$\omega$ [\si{\hertz}]},
         ylabel={$\rho (\omega; T)$ [\si{\joule\per\cubic\meter}]},
         no markers,
         domain=0.1:40,
-		  axis line style={draw=none},
-		  tick style={draw=none},
+^^I^^I  axis line style={draw=none},
+^^I^^I  tick style={draw=none},
         style={thick}]
 
        \addplot [forget plot,name path=B,samples=2] {0};
@@ -23,4 +28,6 @@
     \end{axis}
 
     \end{tikzpicture}
+\caption{Example spectrum of a blackbody.}
+\end{figure}
 
