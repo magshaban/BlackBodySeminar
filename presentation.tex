@@ -54,9 +54,7 @@
 \begin{frame}[noframenumbering]{Overview}
 	\begin{multicols}{2}
 		\tableofcontents[sections={1}]
-		
 			\columnbreak
-			
 		\tableofcontents[sections={2}]	
 	\end{multicols}
 	
@@ -69,7 +67,7 @@
 
 \section{\textbf{Part 1}}
 
-\subsection{The Black Body problem}
+\subsection{The blackbody problem}
 
 \begin{frame}{Introduction}
 
@@ -81,7 +79,7 @@
 
 \end{frame}
 
-\subsection{Charged oscillators} %this section is not needed, i guess
+%\subsection{Charged oscillators} this section is not needed, i guess
  
 \subsection{Rayleigh's intensity function}
 
@@ -97,9 +95,9 @@
 		
 		\begin{itemize}
 		
-			\item Consider gaseous medium, in which we have a charged oscilator (Say an electron). \pause \newline
-			\item Due to random motion of the gaseous atoms, it often collides with the oscillator. \pause \newline
-			\item As a result the gaseous atoms imparts some of it's kinetic energy to the oscillator.
+			\item Consider a gaseous medium into which a charged particle,say an electron, enters. \pause \newline
+			\item Due to the atoms in the gas, the electron collides with the atoms several times \pause \newline
+			\item As a result the gaseous atoms impart some of their kinetic energy to the electron.
 		
 		\end{itemize}
 
@@ -111,13 +109,15 @@
 
 \begin{frame}{Rayleigh's law}
 	
-		\begin{itemize}
-			
-		\item {\large Kinetic energy of the oscillator is, $\frac{1}{2}\,kT$.} \newline
-		 
-		\item {\large And the total kinetic energy will be  $ kT $. }
-		 
-		\end{itemize}
+ 	\begin{center}
+ 				
+		{\large Kinetic energy of the electron is,} 
+		\[ \frac{1}{2}\,kT \]
+		
+		{\large And the total kinetic energy will be,}
+		\[ kT \]
+		
+	\end{center}
 		
 \end{frame}
 	
@@ -126,7 +126,7 @@
 	 	
 		\begin{multicols}{2}
   			\begin{itemize}
-  				\item {\large Since the charge is radiating energy \textbf{the system cannot attain equilibrium}} \pause
+  				\item {\large Since the electron is radiating energy \textbf{the system cannot immediately attain equilibrium}} \pause
   			\end{itemize}
   				
 	\columnbreak
@@ -146,8 +146,8 @@
 		
   			\begin{itemize}
   			
-  				\item {\large Since the charge is radiating energy \textbf{the system cannot attain equilibrium}}
-  				\item {\large Inner walls of the box is totally reflective.}
+  				\item {\large Since the electron is radiating energy \textbf{the system cannot immediately attain equilibrium}}
+  				\item {\large The inner walls of the box is totally reflective.}
   				
   			\end{itemize}
   				
@@ -164,9 +164,9 @@
 		
 \begin{frame}{Rayleigh's law}
 		
-		So, the energy radiated  by the oscillator  per second can be given by, \newline
+		The electron behaves like an oscillator whose energy radiated away per second is be given by, \newline
 		{\large \[ \frac{1}{Q} = \frac{\left(\frac{dW}{dt}\right)}{\omega_0 W}\]}\newline
-			{\small $Q$ is the radiation reaction. \\ $\omega_0$ is the natural frequency of vibration. \\ $W$ is the total energy content of the oscillator.} 
+			{\small $Q$ is the radiation reaction \\ $\omega_0$ is the natural frequency of vibration \\ $W$ is the total energy content of the oscillator} 
 				
 \end{frame}
 	
@@ -176,7 +176,7 @@
 		\[ \frac{1}{Q}= \frac{\gamma}{\omega_0} \]
 			
 			\begin{center}		
-				{\small Where $\gamma$ is the dampping constant.}
+				{\small Where $\gamma$ is the damping constant.}
 			\end{center}
 			
 		
@@ -188,9 +188,8 @@
 	 \begin{center}
 	 
 	 	{\large Average energy loss due to radiation is given by,}
-	
 	 {\large \[ \left<\frac{dW}{dt}\right> = \gamma kT\]}	 
-	  {\large Since the degree of freedom is 3,}
+	  {\large Since the degree of freedom is 3}
 	 {\large \[ \left<\frac{dW}{dt}\right> = 3 \gamma kT\]}
 	  \end{center} 
 \end{frame}
@@ -199,21 +198,21 @@
 	
 	\begin{itemize}
 		
-		\item  $ \mathbf{I}(\omega)d\omega $ is the incident light energy within a frequeny range $d\omega$. \newline
-		\item \textbf{Asumption:} The radiation which falls on a \textit{cross section} '$\sigma_s$' is absorbed completely, \newline
-		\item Scattered light is the product of $ \mathbf{I}(\omega)d\omega $ and $ \sigma_s $.
+		\item  $ \mathbf{I}(\omega)d\omega $ \textbf{is the incident light energy} within a frequeny range $d\omega$. \newline
+		\item \textbf{Asumption:} The radiation which falls on a \textit{cross-section} $\sigma_s$ is absorbed completely. \newline
+		\item The total energy scattered is the product of $ \mathbf{I}(\omega)d\omega $ and $ \sigma_s $.
 
 	\end{itemize}
 	
 \end{frame}
 			
-\begin{frame}{Rayleigh's law}
-	\begin{center}
-		Expression for the cross section is given by,
-	\end{center}
+\begin{frame}{Rayleigh's law} \vspace{0.5cm}
+
+		The cross-section is given by
+
 	
 	{\large \[ \sigma_s = \frac{8\pi {r_0}^{2}}{3} \left[ \frac{\omega^{4}}{(\omega^2-{\omega_0}^{2})^2+\gamma^2 \omega^2}\right] \]}\newline
-	When $ \omega\,=\,\omega_0 $, \newline 		
+	At equilibrium, $ \omega\,=\,\omega_0 $ \newline 		
 	{\large \[ \sigma_s = \frac{2\pi {r_0}^{2}{3} \omega_0^{2}}{3(\omega-\omega_0)^2+\dfrac{\gamma^2}{4}} \]}
 	
 \end{frame}
@@ -222,27 +221,25 @@
 
 	\[ \frac{dW_s}{dt}=\int_0^{\infty}{\mathbf{I}(\omega)\,\sigma_s \, d\omega} = \int_0^{\infty}{\frac{2\pi {r_0}^{2} \omega_0^{2} \, \mathbf{I}(\omega)\, d\omega}{3 \left[ (\omega-\omega_0)^2+\dfrac{\gamma^2}{4} \right] }} \] \newline
 
-	 \because ($\omega =\omega_0 $), 
+	 \because \, $\omega =\omega_0 $, 
 	\[ \frac{dW_s}{dt}= \frac{2}{3}\pi {r_0}^{2} \omega_0^{2} \, \mathbf{I}(\omega_0) \int_{-\infty}^{\infty}{\frac{d\omega}{(\omega-\omega_0)^2+{\left(  \dfrac{\gamma}{2} \right)}^{2}}}  \]
 
 \end{frame}
 
 \begin{frame}{Rayleigh's law}\vspace{1cm}
 
-	The integral reduces to arctan function. We get, $2\pi / \gamma$. 
+	The integral reduces to an arctan function and we get $2\pi / \gamma$. \vspace{.5cm}
 		\begin{align*}
-			\frac{dW_s}{dt} &= \frac{dW}{dt} = 3 \gamma kT \\[2ex]
-			\therefore \mathbf{I}(\omega) &= \frac{9\gamma^2\,kT}{4\pi^2 r_0^2\omega_0^2} \\[2ex]
-			\implies \gamma &= \frac{2}{3} \frac{r_0 \omega_0^2}{c}
+			\frac{dW_s}{dt} &= \frac{dW}{dt} = 3 \gamma kT \qquad \textrm{(as seen earlier)} \\[2ex]
+			\therefore \mathbf{I}(\omega) &= \frac{9\gamma^2\,kT}{4\pi^2 r_0^2\omega_0^2} \\
 		\end{align*}
 	
 \end{frame}
 
 \begin{frame}{Rayleigh's law}
 
-		
 		\begin{align*}
-		\implies \gamma &= \frac{2}{3} \frac{r_0 \omega_0^2}{c} \\[2ex]
+		\implies \gamma &= \frac{2}{3} \frac{r_0 \omega_0^2}{c} \\
 		\end{align*}
 			{\large The intensity distribution function $\mathbf{I}(\omega)$ is, }
 		\begin{align*}	
@@ -253,7 +250,7 @@
 
 
 				
-\subsection{The Ultra-Violet catastropy} 
+\subsection{The ultraviolet catastrophy} 
 
 \begin{frame}[fragile]{The experimental observation}
 \vspace*{2ex}
@@ -271,6 +268,7 @@
         domain=0.1:40,
 		  axis line style={draw=none},
 		  tick style={draw=none},
+		  xticklabels={}
         style={thick}]
 
        \addplot [forget plot,name path=B,samples=2] {0};
@@ -290,16 +288,16 @@
 
 \end{frame}
 
-\subsection{Plank's emphirical formula}
+\subsection{Planck's empirical formula}
 
 \begin{frame}{}
 
 	\begin{multicols}{2}
 	
 \begin{center}
-
+ \null \vfill
  {\large A theoretical explanation for the obtained experimental results were needed. }
-
+ \vfill \null
 \end{center}
  
 	\columnbreak
@@ -318,8 +316,8 @@
 
 	\begin{itemize}
 
-		\item The harmonic oscillator can take up energies only in the multiples of $ \mathbf{\hbar \omega} $.  \newline
-		\item The probability of occupying an energy level \textbf{E} is {\large $\mathbf{P(E)} = \alpha e^{-\hbar \omega / kT}$} . 
+		\item The harmonic oscillator can take up energies only as multiples of $ \mathbf{\hbar \omega} $. \pause  \newline
+		\item The probability of occupying an energy level $ \mathbf{E} $ is {\large $\mathbf{P(E)} = \alpha e^{-\hbar \omega / kT}$}.  
 	\end{itemize}
 	
 \end{frame}
@@ -328,8 +326,8 @@
 
 	\begin{itemize}
 	
-		\item The number of oscillators in ground state is $ N_0 $ . \newline
-		\item The number of oscillator in first state is $ N_1 = N_0  e^{-\hbar \omega / kT} $.  \vspace{0.5cm}
+		\item The number of oscillators in ground state is $ N_0 $ . \pause \newline
+		\item The number of oscillator in first state is $ N_1 = N_0  e^{-\hbar \omega / kT} $.  \vspace{0.5cm} \pause
 		\item Then $ N_n = N_0 x^n $ , where $ x = e^{-\hbar \omega / kT} $
 	
 	\end{itemize}
@@ -340,8 +338,8 @@
 
 	\begin{itemize}
 	
-		\item The energy in the ground state is zero. \newline
-		\item The energy in the first state is $ N_1 \hbar \omega $ or $ N_0 \hbar \omega x $ \newline
+		\item The energy in the ground state is zero.\pause \newline
+		\item The energy in the first state is $ N_1 \hbar \omega $ or $ N_0 \hbar \omega x $ \pause \newline
 		\item Total energy is given by \[ E_{\left(total \right)} = N_0 \hbar \omega ( 0 + x + 2 x^2 + \cdots ) \] 
 	
 	\end{itemize}
@@ -350,7 +348,7 @@
 \begin{frame}
 	\begin{itemize}
 
-		\item The total number of oscillators is \[ N_{\left(total \right)} = N_0 ( 1 + x +  x^2 + \cdots ) \]  \newline
+		\item The total number of oscillators is \[ N_{\left(total \right)} = N_0 ( 1 + x +  x^2 + \cdots ) \]  \pause \newline
 		\item  The average energy is \[ \left< E \right> = \frac{E_{\left(total \right)}}{N_{\left(total \right)}} = \dfrac{N_0 \hbar \omega ( 0 + x + 2 x^2 + \cdots )}{N_0 ( 1 + x + x^2 + \cdots )} \] \newline
 		
 	\end{itemize}
@@ -367,13 +365,14 @@
 
 \begin{frame}
 
-		\[ Y = \dfrac{1}{(1 - x )^2 } \] \newline
-		\[ \left< E \right> = \dfrac{ N_0 \hbar \omega x / (1 - x )^2}{ N_0 / (1 - x )} \] 
+		\[ Y = \dfrac{1}{(1 - x )^2 } \]
+		
+		 Average energy \[  \left< E \right> = \dfrac{ N_0 \hbar \omega x / (1 - x )^2}{ N_0 / (1 - x )} \] %not aligned properly
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}
 
-		\[ \left< E \right> =  \frac{\hbar \omega e^{-\hbar \omega / kT} }{1 - e^{-\hbar \omega / kT} } \hspace {1.5cm} \because x = e^{-\hbar \omega / kT}  \] 
+		\[ \left< E \right> =  \frac{\hbar \omega e^{-\hbar \omega / kT} }{1 - e^{-\hbar \omega / kT} } \hspace {1.5cm} \because x = e^{-\hbar \omega / kT}  \] \vspace{0.35cm}
 		
 		\begin{equation}	
 		\boxed{ \left< E \right> = \frac{\hbar \omega}{e^{\hbar \omega / kT}-1} }
@@ -383,7 +382,7 @@
 
 \begin{frame}
 	\begin{center}
-		{\large Hence The intensity of radiation for frequency $\omega$ is given by,
+		{\large Hence the intensity of radiation for frequency $\omega$ is given by
 			\begin{equation}
 			I(\omega)d\omega = \frac{\hbar \omega^3 d\omega}{ \pi^2 c^2 \left(e^{\hbar \omega / kT}-1 \right) } 
 			\end{equation}
@@ -407,6 +406,7 @@
         domain=0.1:40,
 		  axis line style={draw=none},
 		  tick style={draw=none},
+		  xticklabels={}
         style={thick}]
 
        \addplot [forget plot,name path=B,samples=2] {0};
@@ -427,17 +427,16 @@
 \end{frame}
 
 
+\section{\textbf{Part 2}}
 
-\section{Part 2}
-
-\subsection{Intensity of a Black Body spectrum and the problem}
+\subsection{Intensity of a blackbody spectrum and the problem}
 
 \begin{frame}{}
 
 	\begin{itemize}
 
-		\item The intensity of radiation for frequency $\omega$ is given by \[I(\omega)d\omega = \frac{\hbar \omega^3 d\omega}{ \pi^2 c^2 \left(e^{\hbar \omega / kT}-1 \right) } \] \newline
-		\item Planck considered that the matter was quantized and not light. \newline
+		\item The intensity of radiation for frequency $\omega$ is given by \[I(\omega)d\omega = \frac{\hbar \omega^3 d\omega}{ \pi^2 c^2 \left(e^{\hbar \omega / kT}-1 \right) } \] \pause \newline
+		\item Planck considered that the matter was quantised and not light. \pause \newline
 		\item Einstein came up with an alternate idea to solve Black body problem.
 		 
 	\end{itemize}
@@ -445,38 +444,28 @@
 \end{frame}
 
 
-\subsection{Einstein's work on Black Bodies}
+\subsection{Einstein's work on blackbodies}
 
 \begin{frame}{}
 
-	\begin{itemize}
+	\begin{center}
 
-		\item Einstein considered that even the light was quantized, by taking that light is actually photons with energy $\hbar \omega$   \newline
-		\begin{center}	
+		{\large Einstein considered that even the light was quantised and considerd it to be made up of photons with energy $\hbar \omega$  }  
+			
 	
-	 		\includegraphics[scale=.5]{emission.jpg}
+	 		\includegraphics[scale=0.1]{emission.jpg}
 	 
 		\end{center}
 
-	\end{itemize}
-	
-\end{frame}
-
-\begin{frame}{}
-
-	\begin{itemize}
-	
-		\item Einstein assumed that Planck's formula was right. \newline
-		\item Consider two energy levels , say , the $n^{th}$ level and $m^{th}$ level. \newline
-	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}
 
 	\begin{itemize}
-
-		\item The probability of the transition is proportional to intensity of the light. \newline
+	
+		\item Consider two energy levels, say the $n^{th}$ and $m^{th}$ levels. \pause \newline
+		\item The probability of transitioning is proportional to intensity of the incident light. \pause \newline
 		
 	\end{itemize}
 		
@@ -490,9 +479,12 @@
 
 	\begin{itemize}
 
-		\item Einstein considers that there are two types of emissions that take place in an atom. \newline
-		\item Spontaneous emission. \newline
-		\item Stimulated emission.
+		\item Einstein considers that there are two types of emissions that take place in an atom. \pause \newline
+		\begin{enumerate}
+			\item Spontaneous emission. \pause \newline
+			\item Stimulated emission.
+		\end{enumerate}			
+
 		
 	\end{itemize}
 	
@@ -502,7 +494,7 @@
 
 	\begin{itemize}
 	
-		\item The combined mathematical expression is,
+		\item The combined mathematical expression is
 		
 	\end{itemize}
 	
@@ -516,7 +508,7 @@
 
 	\begin{itemize}
 
-		\item At thermal equilibrium, the number of atoms going to higher energy level ,ust be equal to the number of atoms coming to 					  lower energy state. \newline	
+		\item At thermal equilibrium, the number of atoms going to higher energy level must be equal to the number of atoms coming to 					  lower energy state. \pause \newline	
 		\item The ratio of $ N_{m} $ to $ N_{n} $ is given by $ e^{-\hbar \omega / kT} $  \newline
  
 	\end{itemize}
@@ -525,24 +517,24 @@
 
 \begin{frame}{}
 
-	\begin{itemize}
+	\begin{center}
 
-		\item At thermal equilibrium both $ R_{n \to m} $ and $ R_{m \to n} $ are equal.  \newline
-		\item $ N_{n} B_{nm} I(\omega) = N_{m} [A_{mn} + B_{mn} I(\omega)] $ \newline
-		\item On dividing the previous equation by $ N_{m} $ we get, 
+		 At thermal equilibrium both $ R_{n \to m} $ and $ R_{m \to n} $ must be equal. \pause \vspace{0.75cm}
+		 $ N_{n} B_{nm} I(\omega) = N_{m} [A_{mn} + B_{mn} I(\omega)] $ \pause \newline
+		 On dividing the previous equation by $ N_{m} $ we get, 
 		
-	\end{itemize}
+	\end{center}
 	
 \end{frame}
 
 \begin{frame}{}
 
-	\begin{itemize}
+	\begin{center}
 
-		\item $ B_{nm} I(\omega) e^{\hbar \omega /kT} = A_{mn} + B_{mn} I(\omega) $ \newline
-		\item The equation that Einsteim got for the intensity of radiation for frequency is 
+		 $ B_{nm} I(\omega) e^{\hbar \omega /kT} = A_{mn} + B_{mn} I(\omega) $ \pause \newline
+		 The equation that Einstein got for the intensity of radiation for frequency is 
 		
-	\end{itemize}
+	\end{center}
 	
 		\begin{equation}
 				 I(\omega) = \frac{A_{mn}}{B_{nm} e^{\hbar \omega / kT} - B_{mn} }	 
@@ -552,10 +544,8 @@
 
 \begin{frame}{}
 
-	\begin{itemize}
-
-		\item Since Einstein considered that the formula given by Planck was correct, we should get , \newline
-		\item  $ B_{nm} = B_{mn} $  and also
+ Since Einstein considered that the formula given by Planck was correct, we should get \pause \newline
+ $ B_{nm} = B_{mn} $  \newline
 		
 			\begin{flushleft}
 			
@@ -563,59 +553,55 @@
 
 			\end{flushleft}
 			
-	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}{}
+	\begin{center}
+	
+		{\Large This is how Einstein derived Planck's formula but this time from a quantum mechanical viewpoint.}
 
-	{\Large This is how Einstein rederived Planck's formula from a quantum mechanical viewpoint.}
+	\end{center}
 		
 \end{frame}
 
 \section{\textbf{Part 3}}
 
 \begin{frame}{}
-
-	\begin{itemize}
-
-		\item \textbf{P} = probability\newline
-		\item $ \phi $ = Probability amplitude \newline
-		\item \textbf{P} = $ \,\Bigr\rvert\,\phi \,\Bigr\rvert\,^{2} $ 
-		
-	\end{itemize}
+\begin{multicols}{3}
+ 
+  \textbf{P} = probability
+  
+	\columnbreak
 	
-\end{frame}
+	$ \phi $ = Probability amplitude
 
-\begin{frame}{}
-
-	\begin{itemize}
-
-		\item $ \phi $ = $ \phi_{1} + \phi_{2} $ \newline
-		\item \textbf{P} = $ \,\Bigr\rvert\,\phi_{1} + \phi_{2} \,\Bigr\rvert\,^{2} $ 
+	\columnbreak
 	
-	\end{itemize}
+	\textbf{P} = $ \,\Bigr\rvert\,\phi \,\Bigr\rvert\,^{2} $
 	
+	\end{multicols}
+	
+			 \[ \phi  =  \phi_{1} + \phi_{2} \] 
+			 
+			 \[ \textbf{P} =  \,\Bigr\rvert\,\phi_{1} + \phi_{2} \,\Bigr\rvert\,^{2} \]
+
+
 \end{frame}
 
 \begin{frame}
 
 	\begin{multicols}{2}
-	
-	\begin{center}
-	
-	\includegraphics[scale=0.25]{detector.jpg} 
 
-	\end{center}
- 
+		\begin{itemize}
+			\item Detector $ 1 $ is set to detect only $ \alpha $ particles and Dectector  $ 2 $ is set to detect only oxygen atoms.\newline
+			\item Probability amplitude of the scattering is given by $ f(\theta)$ when they are at an angle $\theta$.\newline
+			\item The probability of this event = $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $
+		\end{itemize}
+		
 	\columnbreak
-	
 
-\begin{center}
-
-\includegraphics[scale=0.25]{detectorA.jpg}
-
-\end{center}
+\includegraphics[scale=0.15]{detector.jpg} 
 
 	\end{multicols}
 
@@ -625,78 +611,114 @@
 
 \begin{frame}{}
 
-	\begin{itemize}
-		\item Detector $ 1 $ is set to detect only $ \alpha $ particles and Dectector  $ 2 $ is set to detect only oxygen atoms.\newline
-		\item Probability amplitude of the scattering is given by $ f(\theta)$ when they are at an angle $\theta$.\newline
-		\item The probability of this event = $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $
-	\end{itemize}
+	\begin{multicols}{2}
+ 
+ 		\begin{itemize}
+	
+			\item Set up the dectectors such that the detectors would dectect either $\alpha$ particle or oxygen atom.\newline
+			\item We will not distinguish which particle is which entering the detector.\newline
+			\item This means that if oxygen atom in position $\theta$ , then
+		$\alpha$ particle on the opposite side is at an angle $\pi-\theta$.
+		
+		\end{itemize}
+	
+	\columnbreak
+	
+		\includegraphics[scale=0.15]{detectorA.jpg} 
+	
+	\end{multicols}
+	
 		
 \end{frame}
 
 
 \begin{frame}{}
 
-	\begin{itemize}
+
+	\begin{multicols}{2}
+ 
+		 \includegraphics[scale=0.15]{detector.jpg}
+ 
+	\columnbreak
 	
-		\item Set up the dectectors such that the detectors would dectect either $\alpha$ particle or oxygen atom.\newline
-		\item We will not distinguish which particle is which entering the detector.\newline
-		\item This means that if oxygen atom in position $\theta$ , then
-		$\alpha$ particle on the opposite side is at an angle $\pi-\theta$.
+		\begin{itemize}
+	
+			\item Probability amplitude of oxygen atom = $f(\pi-\theta)$ \newline
+			\item Probability amplitude of $\alpha$ particle = $f(\theta)$ \newline
+			\item The probability of a particle being detected at detector 1 = $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $ + $ \,\Bigr\rvert\,f(\pi - \theta) \,\Bigr\rvert\,^{2} $
 		
-	\end{itemize}
+ 		\end{itemize}
+ 	
+	\end{multicols}
+	
 	
 \end{frame}
 
 \begin{frame}
 
-	\begin{itemize}
+	\begin{multicols}{2}
 	
-		\item Probability amplitude of oxygen atom = $f(\pi-\theta)$ \newline
-		\item Probability amplitude of $\alpha$ particle = $f(\theta)$ \newline
-		\item The probability of a particle 
-		being detected at detector 1 = $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $ + $ \,\Bigr\rvert\,f(\pi - \theta) \,\Bigr\rvert\,^{2} $
+ 		 \includegraphics[scale=0.15]{detectorA.jpg}
+
+ 
+	\columnbreak
+	
+		\begin{itemize}
+
+			\item Consider if both are $ \alpha $ particles, \newline
+			\item Then we would not know which particle entered the detector, so the total probability changes to,  \newline
+			\item  The probability of a $ \alpha $ particle 
+		being detected at detector 1 = $ \,\Bigr\rvert\,f(\theta) + f(\pi - \theta) \,\Bigr\rvert\,^{2} $
 		
- 	\end{itemize}
+		\end{itemize}
+	
+	\end{multicols}
  	
 \end{frame}
 
-\begin{frame}{}
-
-	\begin{itemize}
-
-\item Consider if both are $ \alpha $ particles, \newline
-\item Then we would not know which particle entered the detector, so the total probability changes to,  \newline
-\item  The probability of a $ \alpha $ particle 
-		being detected at detector 1 = $ \,\Bigr\rvert\,f(\theta) + f(\pi - \theta) \,\Bigr\rvert\,^{2} $
-		
-	\end{itemize}
-	
-\end{frame}
-
 \begin{frame}
 
-	\begin{itemize}
+	\begin{multicols}{2}
+ 
+  		\includegraphics[scale=0.15]{detector.jpg}
+  
+	\columnbreak
+	
+		\begin{itemize}
 
-		\item If  $\theta = \dfrac{\pi}{2}$,  then applying this to the expression  $\,\Bigr\rvert\,f(\theta)+f(\pi-\theta)\,\Bigr\rvert\,^{2}$ we get, \newline
-		\item Probability = $4 \,\Bigr\rvert\,f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert\,^{2}$ , if the particles are indistinguishible.
+			\item If  $\theta = \dfrac{\pi}{2}$,  then applying this to the expression  $\,\Bigr\rvert\,f(\theta)+f(\pi-\theta)\,\Bigr\rvert\,^{2}$ we get, \newline
+			\item Probability = $4 \,\Bigr\rvert\,f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert\,^{2}$ , if the particles are indistinguishible.
 		
-	\end{itemize}
+		\end{itemize}
+	
+	\end{multicols}
+
 	
 \end{frame}
 
 \begin{frame}{}
 
-	\begin{itemize}
+	\begin{multicols}{2}
+ 
+   		\includegraphics[scale=0.15]{detectorA.jpg}
 
-		\item Suppose the particles were distinguishible, then the probability for $\theta = \dfrac{\pi}{2}$ when applied for $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $ + $ \,\Bigr\rvert\,f(\pi - \theta) \,\Bigr\rvert\,^{2} $ is given by, \newline
-		\item Probability = $2 \,\Bigr\rvert\, f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert ^{2}$ \newline 
-		\item This shows that the probability gets doubled for indistinguishible particles.
+	\columnbreak
+	
+		\begin{itemize}
 
-	\end{itemize}
+			\item Suppose the particles were distinguishible, then the probability for $\theta = \dfrac{\pi}{2}$ when applied for $ \,\Bigr\rvert\,f(\theta) \,\Bigr\rvert\,^{2} $ + $ \,\Bigr\rvert\,f(\pi - \theta) \,\Bigr\rvert\,^{2} $ is given by, \newline
+			\item Probability = $2 \,\Bigr\rvert\, f\left(\dfrac{\pi}{2}\right) \,\Bigr\rvert ^{2}$ \newline 
+			\item This shows that the probability gets doubled for indistinguishible particles.
+
+		\end{itemize}
+	
+	\end{multicols}
+
 	
 \end{frame}
 
 \begin{frame}
+	
 	\begin{itemize}
 		\item \textit{Can we apply the same logic to the electron-electron scattering ? }\newline
 		\item \textit{OBSERVATION} : " When we have situation in which the identity of the electron which is arriving at a point is echanged with another one , the new amplitude interfere with old one with an opposite phase." \newline
@@ -706,7 +728,7 @@
 \end{frame}
 
 \begin{frame}
- \center \includegraphics[scale=0.25]{table.jpg}
+ 	\center \includegraphics[scale=0.25]{table.jpg}
 	
 \end{frame}
 
@@ -1000,9 +1022,9 @@
 
 \subsection{Amplitude-based descriptiom of identical particles}
 
-\subsection{n Boson systems}
+\subsection{n-Boson systems}
 
-\subsection{Probability based emission and absorption of Black Bodies}
+\subsection{Probability-based emission and absorption of blackbodies}
 
 \begin{frame}{}
 	\begin{center}
@@ -1011,5 +1033,3 @@
 \end{frame}
 
 \end{document}
-
-
