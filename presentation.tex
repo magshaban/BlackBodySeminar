@@ -205,17 +205,13 @@
 	 \[\mathbf{I}(\omega)=\frac{\omega^2\,kT}{\pi^2 c^2} \] 
 \end{frame}
 
-\begin{frame}{Graph}
+\begin{frame}[fragile]{Graph}
 	\begin{tikzpicture}[samples=100, scale=1.5]
 		\draw[->,thick] {(0,0) -- (0,6)};
 		\draw[->,thin] {(0,0) -- (7,0)};
     \begin{axis}[
-        %xmin=0,
         xlabel={$\omega$ [\si{\hertz}]},
-        %ymin=0,
-        %ymax=pi,
         ylabel={$\rho (\omega; T)$ [\si{\joule\per\cubic\meter}]},
-        %ytick=\empty,
         no markers,
         domain=0.1:40,
 		  axis line style={draw=none},
@@ -230,7 +226,6 @@
         {(x^3)/((pi^2)*(exp(2000*x/(#1))-1))};
         \addlegendentryexpanded{$T = #1 [\si{\kelvin}]$}
     }
-
 
     \end{axis}
     
